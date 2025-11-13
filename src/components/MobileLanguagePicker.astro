@@ -14,7 +14,7 @@ const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(
     {Object.entries(languages).map(([code, name]) => (
         <li role="option">
             <a 
-                href={import.meta.env.SITE + `/${code}/${path}/`}
+                href={import.meta.env.SITE + `${code}/${path}`}
                 class={cn("flex items-center gap-2 px-1 py-2 rounded-full hover:bg-bg-acika-primary", code === currentLanguage ? 'font-bold bg-bg-acika-primary' : '')}
                 data-lang={code}>
                 <img 

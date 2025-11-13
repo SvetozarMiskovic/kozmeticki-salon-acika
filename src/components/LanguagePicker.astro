@@ -36,7 +36,7 @@ console.log('Current language in LanguagePicker:',url.pathname.split('/').length
         {Object.entries(languages).map(([code, name]) => (
             <li role="option">
                 <a 
-                    href={import.meta.env.SITE + `/${code}/${path}/`}
+                    href={import.meta.env.SITE + `${code}/${path}`}
                     class={cn("flex items-center gap-2 px-1 py-2 hover:bg-accent-acika-secondary", code === currentLanguage ? 'font-bold bg-accent-acika-secondary' : '')}
                     data-lang={code}>
                     <img 
