@@ -1,0 +1,46 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import MobileNavTrigger from './MobileNavTrigger.astro';
+import { Icon } from 'astro-icon/components';
+import LanguagePicker from './LanguagePicker.astro';
+import MobileLanguagePicker from './MobileLanguagePicker.astro';
+
+const currentLanguage = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLanguage);
+const ten = useTranslations('en');
+const pathname = Astro.url.pathname
+
+const links = [{
+    pathname:  getRelativeLocaleUrl(getLangFromUrl(Astro.url), "" ),
+    label: t('nav.home'),
+    icon: 'Home'
+}, {
+    pathname:  getRelativeLocaleUrl(getLangFromUrl(Astro.url), "about" ),
+    label: t('nav.about'),
+    icon: 'About'
+}, {
+    pathname: getRelativeLocaleUrl(getLangFromUrl(Astro.url), "contact" ),
+    label: t('nav.contact'),
+    icon: 'Contact'
+}, {
+    pathname: getRelativeLocaleUrl(getLangFromUrl(Astro.url), "services" ),
+    label: t('nav.services'),
+    icon: 'Services'
+}]
+
+---
+
+<ul class='mobile-nav navlist border-b border-t border-black bg-bg-acika-primary min-w-full z-45 opacity-0 tranistion-all duration-500 absolute inset-x-0 top-full  list-none justify-center p-2 '>
+        
+    
+      <MobileLanguagePicker/>  
+
+        {links.map((link)=>(
+        <li class={`${link.pathname === pathname ? "text-text-acika-primary" : "text-text-acika-secondary"}  hover:text-text-acika-primary transition-colors duration-400 flex items-center py-4 gap-1`}>
+             <Icon name={link.icon}/> <a href={link.pathname}>{link.label}</a>
+        </li>
+        ))}
+
+        
+</ul>

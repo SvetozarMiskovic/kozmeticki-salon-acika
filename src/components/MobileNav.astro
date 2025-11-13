@@ -1,0 +1,57 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+import MobileNavContent from './MobileNavContent.astro';
+import MobileNavTrigger from './MobileNavTrigger.astro';
+
+---
+
+<section
+      class='p-2 w-full flex justify-end  md:hidden'
+    >
+      <MobileNavTrigger/>
+      <MobileNavContent/>
+      
+    </section>
+
+    <script>
+      const btn = document.querySelector('.hamburger-button');
+      const firstLine = document.querySelector('.hamburger-first-line');
+      const secondLine = document.querySelector('.hamburger-second-line');
+      const thirdLine = document.querySelector('.hamburger-third-line');
+      const mobileNav = document.querySelector('.mobile-nav');
+
+
+      document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+
+        if (mobileNav && !mobileNav.contains(target) && !btn?.contains(target)) {
+
+        btn?.setAttribute('aria-expanded', 'false');
+        mobileNav?.classList.remove('opacity-100')
+        secondLine?.classList.remove('opacity-0');
+        firstLine?.classList.remove('rotate-45');
+        thirdLine?.classList.remove('-rotate-45');
+        firstLine?.classList.remove('translate-y-2');
+        thirdLine?.classList.remove('-translate-y-2');
+        mobileNav?.classList.add('opacity-0')
+         
+        }
+      });
+
+      btn?.addEventListener('click', () => {
+        const expanded = btn?.getAttribute('aria-expanded') === 'true'
+        mobileNav?.classList.toggle('opacity-100')
+        if(expanded){
+          btn?.setAttribute('aria-expanded', 'false')
+        } else {
+          btn?.setAttribute('aria-expanded', 'true')
+        }
+        secondLine?.classList.toggle('opacity-0');
+        firstLine?.classList.toggle('rotate-45');
+        thirdLine?.classList.toggle('-rotate-45');
+        firstLine?.classList.toggle('translate-y-2');
+        thirdLine?.classList.toggle('-translate-y-2');
+       
+      });
+    </script>
+ 

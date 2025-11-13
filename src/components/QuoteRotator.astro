@@ -1,0 +1,60 @@
+---
+const quotes = [
+  "The best way to predict the future is to create it.",
+  "Simplicity is the ultimate sophistication.",
+  "Code is like humor. When you have to explain it, it’s bad.",
+  "Stay hungry, stay foolish.",
+  "Make it work, make it right, make it fast."
+];
+---
+
+<div id="quote" class="quote">{quotes[0]}</div>
+
+<script>
+  const quotes = [
+    "The best way to predict the future is to create it.",
+    "Simplicity is the ultimate sophistication.",
+    "Code is like humor. When you have to explain it, it’s bad.",
+    "Stay hungry, stay foolish.",
+    "Make it work, make it right, make it fast."
+  ];
+
+  let index = 0;
+  const el = document.getElementById('quote');
+
+  
+  
+  function showNextQuote() {
+    el?.classList.remove('fade-in');
+    el?.classList.add('fade-out');
+
+    setTimeout(() => {
+      index = (index + 1) % quotes.length;
+      el!.textContent = quotes[index];
+      el?.classList.remove('fade-out');
+      el?.classList.add('fade-in');
+    }, 400); // fade duration
+  }
+
+  setInterval(showNextQuote, 3000); // every 3s
+</script>
+
+<style>
+.quote {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 1rem;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
+  min-height: 80px;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+</style>

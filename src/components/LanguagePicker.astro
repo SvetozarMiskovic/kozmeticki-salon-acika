@@ -1,0 +1,89 @@
+---
+import { languages } from '../i18n/ui'
+import { getLangFromUrl } from '../i18n/utils';
+import cn from '../utils/cn';
+const url = Astro.url;
+const currentLanguage = getLangFromUrl(url);
+const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(-2, -1) : '';
+
+
+console.log('Current language in LanguagePicker:',url.pathname.split('/').length, url.pathname, url.pathname.split('/').slice(-2, -1).length, "a:" + path, url.pathname.split('/'));
+---
+
+<div class="language-container flex-col relative flex z-50">
+    <button 
+        type="button"
+        class="custom-select-trigger focus-within:bg-accent-acika-secondary  active:bg-accent-acika-secondary hover:bg-accent-acika-secondary cursor-pointer flex w-fit items-center gap-2 px-5 border rounded"
+        aria-expanded="false"
+        aria-controls="language-dropdown"
+        aria-label="Select language">
+        <img 
+            src={`/${currentLanguage.split('-')[0]}.png`} 
+            alt="" 
+            class="w-5 h-5"
+            aria-hidden="true"
+        />
+        <span>{languages[currentLanguage]}</span>
+        <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+        </svg>
+    </button>
+
+    <ul 
+        id="language-dropdown"
+        class="custom-select-dropdown absolute top-full left-0 w-full bg-accent-acika-primary border rounded shadow-lg mt-1 hidden z-50"
+        role="listbox">
+        {Object.entries(languages).map(([code, name]) => (
+            <li role="option">
+                <a 
+                    href={import.meta.env.SITE + `/${code}/${path}/`}
+                    class={cn("flex items-center gap-2 px-1 py-2 hover:bg-accent-acika-secondary", code === currentLanguage ? 'font-bold bg-accent-acika-secondary' : '')}
+                    data-lang={code}>
+                    <img 
+                        src={`/${code.split('-')[0]}.png`} 
+                        alt="" 
+                        class="w-5 h-5"
+                        aria-hidden="true"
+                    />
+                    <span>{name}</span>
+                </a>
+            </li>
+        ))}
+    </ul>
+</div>
+
+<script>
+    const langContainer = document.querySelector('.language-container');
+    const trigger = langContainer?.querySelector('.custom-select-trigger');
+    const dropdown = langContainer?.querySelector('.custom-select-dropdown');
+    const headerContainer = document.querySelector('.header-container');
+
+
+    document.addEventListener('click', (e) => {
+        const target = e.target as Node;
+        if (langContainer && !langContainer.contains(target)) {
+            trigger?.setAttribute('aria-expanded', 'false');
+            dropdown?.classList.add('hidden');
+        }
+    });
+
+
+    window.addEventListener('resize', () => {
+        const headerRect = headerContainer?.clientWidth;
+        if(headerRect && headerRect < 768) {
+            trigger?.classList.add('hidden')
+            trigger?.setAttribute('aria-expanded', 'false');
+            dropdown?.classList.add('hidden');
+        } else {  
+            trigger?.classList.remove('hidden');
+            trigger?.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    trigger?.addEventListener('click', (e) => {
+        console.log('cliko')
+        const expanded = trigger.getAttribute('aria-expanded') === 'true' || false;
+        trigger.setAttribute('aria-expanded', String(!expanded));
+        dropdown?.classList.toggle('hidden');
+    });
+</script>

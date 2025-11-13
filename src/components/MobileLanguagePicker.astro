@@ -1,0 +1,30 @@
+---
+import { languages } from '../i18n/ui'
+import { getLangFromUrl } from '../i18n/utils';
+import cn from '../utils/cn';
+const url = Astro.url;
+const currentLanguage = getLangFromUrl(url);
+const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(-2, -1) : '';
+---
+
+<ul 
+    id="mobile-language-dropdown"
+    class="mobile-language-picker w-full p-2 bg-accent-acika-primary flex justify-between border rounded shadow-lg mt-1  z-50"
+    role="listbox">
+    {Object.entries(languages).map(([code, name]) => (
+        <li role="option">
+            <a 
+                href={import.meta.env.SITE + `/${code}/${path}/`}
+                class={cn("flex items-center gap-2 px-1 py-2 rounded-full hover:bg-bg-acika-primary", code === currentLanguage ? 'font-bold bg-bg-acika-primary' : '')}
+                data-lang={code}>
+                <img 
+                    src={`/${code.split('-')[0]}.png`} 
+                    alt="" 
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    />
+                <span>{name.slice(0,2)}</span>
+                </a>
+            </li>
+        ))}
+    </ul>

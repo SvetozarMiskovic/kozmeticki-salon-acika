@@ -1,0 +1,24 @@
+---
+import { HEADER } from '../constants';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { Icon } from 'astro-icon/components'
+import LanguagePicker from './LanguagePicker.astro';
+const currentLanguage = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLanguage);
+---
+
+<section class='header-container flex justify-center items-center bg-accent-acika-primary text-white text-xl md:text-2xl p-1'>
+    <div class='max-w-7xl w-full flex flex-row justify-center items-center gap-4'>
+        <section aria-label='Contact us' class='flex flex-row w-full justify-between md:justify-start gap-4 font-bold'>
+            <a aria-label='Call us' role='button' class='hover:underline italic active:underline flex flex-row items-center gap-1' href={`tel:${HEADER.phone}`} ><Icon name={'phone'}/> {HEADER.phone}</a>
+            <a aria-label='Email us' role='button' class='hover:underline italic active:underline flex flex-row items-center gap-1' href={`mailto:${HEADER.email}`}><Icon name={'mail'}/> {HEADER.email}</a>
+        </section>
+
+        <section aria-label='Language selection' class='w-full  flex-1 justify-end items-center relative hidden md:flex'>
+            <LanguagePicker/>
+        </section>
+        
+      
+    </div>
+  
+</section>

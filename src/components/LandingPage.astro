@@ -1,0 +1,43 @@
+---
+import QuoteRotator from './QuoteRotator.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang)
+---
+
+<section id='home' class="relative z-10 flex flex-col items-center justify-center text-center px-6 py-10 h-full overflow-hidden">
+  <!-- Background video + overlay -->
+  <div class="absolute inset-0 w-full h-full">
+    <!-- Subtle black overlay -->
+    <div class="absolute inset-0 bg-black/50 z-10"></div>
+    
+    <!-- Video -->
+     
+    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+      <source src="/landing-page.webm" type="video/webm" />
+    </video>
+  </div>
+
+  <!-- Content -->
+  <h1 class=" relative z-20 text-7xl md:text-6xl font-bold text-accent-acika-primary drop-shadow-lg">
+    {t('landing.text')}
+  </h1>
+  <h2 class="relative z-20 mt-6 text-3xl font-bold md:text-5xl text-bg-acika-primary max-w-2xl">
+   {t('landing.subtext')}
+  </h2>
+ 
+  <a
+    href="#usluge"
+    class="z-20 mt-10 px-8 py-4 bg-bg-acika-primary text-acika rounded-full text-2xl font-bold shadow-lg hover:bg-accent-acika-primary transition"
+  >
+    {t('common.view_services')}
+  </a>
+
+  <a
+    href="#usluge"
+    class="z-20 mt-10 px-8 py-4 bg-accent-acika-primary text-acika rounded-full text-2xl font-bold shadow-lg hover:bg-accent-acika-secondary transition"
+  >
+    {t('landing.schedule_appointment')}
+  </a>
+</section>

@@ -1,0 +1,45 @@
+---
+import "../styles/global.css"
+import Navbar from "../components/Navbar.astro"
+import Header from '../components/Header.astro'
+import { getLangFromUrl, useTranslations } from '../i18n/utils'
+const {pageTitle, pageDescription} = Astro.props
+const curLang = getLangFromUrl(Astro.url)
+const t = useTranslations(curLang);
+---
+
+
+<!doctype html>
+<html lang={curLang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preload" href="/font/AmaticSC-Regular.ttf" as="font" type="font/ttf" crossorigin>
+		<link rel="preload" href="/font/AmaticSC-Bold.ttf" as="font" type="font/ttf" crossorigin>
+		<title>{pageTitle}</title>
+		<meta name="description" content={pageDescription} />
+	</head>
+	<body class='flex flex-col w-full'>
+		<Header />
+		<Navbar 
+		/>
+		<main class='flex-1'>
+
+
+			<slot />
+		</main>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		transition: all;
+		animation-duration: 500ms;
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
