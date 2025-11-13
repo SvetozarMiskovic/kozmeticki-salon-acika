@@ -1,7 +1,7 @@
 export const HEADER = {
   contact_us: 'Kontaktirajte nas',
-  phone: '+381 64 1234567',
-  email: 'info@kozmetickisalonacika.com',
+  phone: '+38765749513',
+  email: 'info@salonacika.com',
   title: 'Kozmeticki Salon - Acika',
   description: 'Najbolje usluge za vašu lepotu',
   logo: 'Logo-Black-T.png',

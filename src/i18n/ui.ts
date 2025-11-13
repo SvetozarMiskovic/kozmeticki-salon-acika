@@ -7,7 +7,7 @@ export const languages = {
 
 export const langs = Object.keys(languages);
 export type Lang = keyof typeof languages;
-export const defaultLanguage = 'sr';
+export const defaultLanguage = 'sr-latn';
 export const ui = {
   en: {
     'meta.title_landing': 'ACIKA Beauty Salon - Beauty and Expertise',
