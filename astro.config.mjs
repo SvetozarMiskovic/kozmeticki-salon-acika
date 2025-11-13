@@ -8,6 +8,8 @@ import react from '@astrojs/react';
 import icon from 'astro-icon';
 import { defaultLanguage } from './src/i18n/ui';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -24,5 +26,5 @@ export default defineConfig({
     },
     locales: ['en', 'de', 'sr', 'sr-latn'],
   },
-  integrations: [react(), icon()],
+  integrations: [react(), icon(), sitemap()],
 });

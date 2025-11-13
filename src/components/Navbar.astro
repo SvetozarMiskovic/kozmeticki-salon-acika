@@ -4,6 +4,7 @@ import Logo from './Logo.astro'
 import { getRelativeLocaleUrl } from 'astro:i18n'
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 import MobileNav from './MobileNav.astro'
+import { defaultLanguage } from '../i18n/ui'
 
 const currentLanguage = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLanguage);
@@ -31,7 +32,7 @@ const navClass = cn('max-w-7xl flex relative justify-between items-center w-full
 <nav class={navContainer}>
     <section class={navClass}>
 
-    <a href='/' class='relative max-w-52 min-w-52 h-32 p-2'>
+    <a href={`/${defaultLanguage}/`} class='relative max-w-52 min-w-52 h-32 p-2'>
         <Logo/>
     </a>
     <ul class='navlist hidden max-w-7xl md:flex flex-row gap-4 list-none justify-center p-2'>
