@@ -12,7 +12,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://salonacika.appwrite.network/',
+  site: 'http://localhost:4321',
   i18n: {
     defaultLocale: 'sr',
     routing: {

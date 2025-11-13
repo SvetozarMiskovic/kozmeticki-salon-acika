@@ -4,6 +4,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang)
+console.log('lang u landing page', lang, Astro.params);
 ---
 
 <section id='home' class="relative z-10 flex flex-col items-center justify-center text-center px-6 py-10 h-full overflow-hidden">

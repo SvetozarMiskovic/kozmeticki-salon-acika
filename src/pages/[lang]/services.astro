@@ -1,0 +1,18 @@
+---
+import { langs, type ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+import Layout from '../../layouts/Layout.astro'; 
+
+export function getStaticPaths () {
+	return langs.map((lang) => ({
+		params: { lang },
+	}))
+};
+const {lang}  = Astro.params;
+const t = useTranslations(lang as keyof typeof ui);
+---
+
+<Layout lang={lang} pageTitle={t('meta.title_services_page')}
+   pageDescription={t('meta.page_description_services')}>
+    Servisi jebote
+</Layout>

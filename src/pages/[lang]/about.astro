@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro'; 
+import AboutComponent from '../../components/AboutComponent.astro'; 
+import { langs, ui } from '../../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+
+export function getStaticPaths () {
+	return langs.map((lang) => ({
+		params: { lang },
+	}))
+};
+
+
+const {lang}  = Astro.params;
+const t = useTranslations(lang as keyof typeof ui);
+---
+
+<Layout lang={lang}  pageTitle={t('meta.title_about_page')}
+   pageDescription={t('meta.page_description_about')}>
+   <AboutComponent/>
+</Layout>

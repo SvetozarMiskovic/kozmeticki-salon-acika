@@ -4,13 +4,15 @@ import Navbar from "../components/Navbar.astro"
 import Header from '../components/Header.astro'
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
 const {pageTitle, pageDescription} = Astro.props
-const curLang = getLangFromUrl(Astro.url)
-const t = useTranslations(curLang);
+const lang = Astro.props.lang;
+
+console.log('layout', lang ,'iz propsa' )
+const t = useTranslations(lang);
 ---
 
 
 <!doctype html>
-<html lang={curLang}>
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
