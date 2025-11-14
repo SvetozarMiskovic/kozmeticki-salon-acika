@@ -15,7 +15,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: 'https://salonacika.com/',
+  site: 'http://localhost:4321',
   redirects: {
     '/': `${defaultLanguage}`,
   },
