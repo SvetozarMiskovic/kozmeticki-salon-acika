@@ -1,0 +1,47 @@
+---
+import { ui, defaultLanguage } from '../i18n/ui';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url) || defaultLanguage;
+const t = useTranslations(lang as keyof typeof ui);
+---
+
+<footer class="bg-bg-acika-primary border-t border-black text-primary-foreground/90 py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class='text-center md:text-start'>
+            <div class="gap-2 mb-2 ">
+
+              <h4 class="font-playfair font-bold text-3xl">{t('common.salon_acika')}</h4>
+            </div>
+            <p class="text-2xl text-primary-foreground/70 italic">
+              {t('footer.address')}
+            </p>
+          </div>
+          <div>
+            <h5 class="font-bold text-3xl mb-2 text-primary-foreground">{t('footer.quick_links')}</h5>
+            <ul class="space-y-2 text-2xl italic">
+              <li><a href="#" class="hover:text-primary-foreground transition-colors">{t('nav.about')}</a></li>
+              <li><a href="#" class="hover:text-primary-foreground transition-colors">{t('nav.services')}</a></li>
+              <li><a href="#" class="hover:text-primary-foreground transition-colors">{t('nav.contact')}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold text-3xl mb-2 text-primary-foreground">{t('nav.contact')}</h5>
+            <ul class="space-y-2 text-2xl italic">
+              <li><a href="tel:" class="hover:text-primary-foreground transition-colors">{t('common.phone')}</a></li>
+              <li><a href="mailto:" class="hover:text-primary-foreground transition-colors">{t('common.email')}</a></li>
+              <li><a href="map:1" class="hover:text-primary-foreground transition-colors">{t('common.location')}</a></li>
+            </ul>
+          </div>
+          <div>
+            <h5 class="font-bold text-3xl mb-2 text-primary-foreground">{t('footer.follow_us')}</h5>
+            <ul class="space-y-2 text-2xl italic">
+              <li><a href="#" class="hover:text-primary-foreground transition-colors">Facebook</a></li>
+              <li><a href="#" class="hover:text-primary-foreground transition-colors">Instagram</a></li>
+              <li><a href="#" class="hover:text-primary-foreground transition-colors">TikTok</a></li>
+            </ul>
+          </div>
+        </div>
+        
+      </div>
+    </footer>

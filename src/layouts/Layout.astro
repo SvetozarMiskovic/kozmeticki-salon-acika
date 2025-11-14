@@ -3,6 +3,7 @@ import "../styles/global.css"
 import Navbar from "../components/Navbar.astro"
 import Header from '../components/Header.astro'
 import { getLangFromUrl, useTranslations } from '../i18n/utils'
+import Footer from '../components/Footer.astro'
 const {pageTitle, pageDescription} = Astro.props
 const lang = Astro.props.lang;
 
@@ -56,11 +57,12 @@ const t = useTranslations(lang);
 		<Header />
 		<Navbar 
 		/>
-		<main class='flex-1'>
+		<main class=''>
 
 
 			<slot />
 		</main>
+
 	</body>
 </html>
 

@@ -3,6 +3,8 @@ import Layout from '../../layouts/Layout.astro';
 import AboutComponent from '../../components/AboutComponent.astro'; 
 import { langs, ui } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
+import Footer from '../../components/Footer.astro';
+import FooterRights from '../../components/FooterRights.astro';
 
 export function getStaticPaths () {
 	return langs.map((lang) => ({
@@ -17,5 +19,32 @@ const t = useTranslations(lang as keyof typeof ui);
 
 <Layout lang={lang}  pageTitle={t('meta.title_about_page')}
    pageDescription={t('meta.page_description_about')}>
-   <AboutComponent/>
+      <section id="story" class="h-fit py-10 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="w-full h-full order-2 md:order-1">
+            <img 
+              src="/modern-beauty-salon.jpg" 
+              alt="Salon interior" 
+              class="rounded-lg shadow-lg h-full w-full object-cover"
+            />
+          </div>
+          <div class="h-full flex flex-col gap-2 order-1 md:order-2">
+            <h1 class="font-playfair text-6xl font-bold text-foreground mb-4">
+              {t('about.title')}
+            </h1>
+            <p class="text-foreground/80 mb-4 text-3xl leading-tight">
+              {t('about.paragraph1')}
+            <p class="text-foreground/80 mb-6 text-3xl leading-tight">
+              {t('about.paragraph2')}
+            </p>
+            <p class="text-foreground/80 text-3xl leading-tight">
+              {t('about.paragraph3')}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+	<Footer/>
+	<FooterRights/>
 </Layout>
