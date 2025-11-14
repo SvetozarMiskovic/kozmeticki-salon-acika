@@ -22,6 +22,35 @@ const t = useTranslations(lang);
 		<link rel="preload" href="/font/AmaticSC-Bold.ttf" as="font" type="font/ttf" crossorigin>
 		<title>{pageTitle}</title>
 		<meta name="description" content={pageDescription} />
+		<link rel="alternate" hreflang="sr" href="https://salonacika.com/sr/" />
+		<link rel="alternate" hreflang="sr-Latn" href="https://salonacika.com/sr-latn/" />
+		<link rel="alternate" hreflang="en" href="https://salonacika.com/en/" />
+		<link rel="alternate" hreflang="de" href="https://salonacika.com/de/" />
+		<link rel="alternate" hreflang="x-default" href="https://salonacika.com/sr-latn/" />
+
+		<meta property="og:title" content="Kozmetički Salon Acika - Lepota i Stručnost">
+		<meta property="og:description" content="Profesionalni tretmani lica i tela u opuštajućem ambijentu.">
+		<meta property="og:image" content="https://salonacika.com/og-image.jpg">
+		<meta property="og:url" content="https://salonacika.com/sr-latn/">
+		<meta property="og:type" content="website">
+
+		<script type="application/ld+json">
+			{
+			"@context": "https://schema.org",
+			"@type": "BeautySalon",
+			"name": "Kozmetički salon Acika",
+			"image": "https://salonacika.com/logo.png",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "Banja Luka",
+				"addressRegion": "BA",
+				"addressCountry": "BA"
+			},
+			"url": "https://salonacika.com/",
+			"telephone": "+38765749513",
+			"priceRange": "$$"
+			}
+		</script>
 	</head>
 	<body class='flex flex-col w-full'>
 		<Header />

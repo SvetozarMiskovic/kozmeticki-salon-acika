@@ -98,17 +98,17 @@ export const ui = {
     'landing.text': 'Kozmetički Salon Acika',
     'landing.subtext':
       'Dobrodošli u Vaše utočište lepote i opuštanja. Prepustite se našim stručnim rukama i uživajte u tretmanima koji neguju telo i dušu.',
-    'meta.title_landing_page': 'Kozmeticki Salon ACIKA - Lepota i Strucnost',
+    'meta.title_landing_page': 'Kozmetički Salon ACIKA - Lepota i Stručnost',
     'meta.page_description_landing':
-      'Kozmeticki Salon Acika - Mesto gde lepota susrece strucnost. Otkrijte nase usluge nege lica i tela, profesionalne tretmane i opustajuce iskustvo u prijatnom ambijentu.',
-    'meta.title_about_page': 'O nama - Kozmeticki Salon Acika',
+      'Kozmetički Salon Acika - Mesto gde lepota susreće stručnost. Otkrijte naše usluge nege lica i tela, profesionalne tretmane i opuštajuće iskustvo u prijatnom ambijentu.',
+    'meta.title_about_page': 'O nama - Kozmetički Salon Acika',
     'meta.page_description_about':
-      'Saznajte vise o Kozmetickom Salonu Acika, nasoj misiji, vrednostima i timu profesionalaca posvecenih pruzanju izuzetnih usluga lepote i velnesa.',
-    'meta.title_contact_page': 'Kontaktirajte nas - Kozmeticki Salon Acika',
+      'Saznajte više o Kozmetičkom Salonu Acika, našoj misiji, vrednostima i timu profesionalaca posvećenih pružanju izuzetnih usluga lepote i velnesa.',
+    'meta.title_contact_page': 'Kontaktirajte nas - Kozmetički Salon Acika',
     'meta.page_description_contact':
-      'Kontaktirajte Kozmeticki Salon Acika za upite, termine i vise informacija o nasim uslugama. Radujemo se vasem pozivu!',
-    'meta.title_services_page': 'Nase Usluge - Kozmeticki Salon Acika',
+      'Kontaktirajte Kozmetički Salon Acika za upite, termine i više informacija o našim uslugama. Radujemo se vašem pozivu!',
+    'meta.title_services_page': 'Naše Usluge - Kozmetički Salon Acika',
     'meta.page_description_services':
-      'Istražite širok spektar usluga koje nudi Kozmeticki Salon Acika, ukljucujuci tretmane lica, negu tela i specijalizovane terapije lepote dizajnirane da istaknu vašu prirodnu lepotu.',
+      'Istražite širok spektar usluga koje nudi Kozmetički Salon Acika, uključujući tretmane lica, negu tela i specijalizovane terapije lepote dizajnirane da istaknu vašu prirodnu lepotu.',
   },
 };
