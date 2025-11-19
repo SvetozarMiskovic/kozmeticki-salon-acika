@@ -32,24 +32,25 @@ interface ContactFormData {
   message: string;
 }
 
+// Abstract CORS headers
+const corsHeaders = {
+  'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || 'https://salonacika.com',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type'
+};
+
 export default async ({ req, res, log, error }: AppwriteContext) => {
   // Initialize Resend with API key from environment variable
   const resend = new Resend(process.env.RESEND_API_KEY);
 
   // Handle CORS for browser requests
   if (req.method === 'OPTIONS') {
-    return res.json({}, 200, {
-      'Access-Control-Allow-Origin': 'https://salonacika.com',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type'
-    });
+    return res.json({}, 200, corsHeaders);
   }
 
   // Only accept POST requests
   if (req.method !== 'POST') {
-    return res.json({ success: false, message: 'Method not allowed' }, 405, {
-      'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-    });
+    return res.json({ success: false, message: 'Method not allowed' }, 405, corsHeaders);
   }
 
   try {
@@ -65,9 +66,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
           message: 'Missing required fields: email, subject, message',
         },
         400,
-        {
-          'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-        }
+        corsHeaders
       );
     }
 
@@ -77,9 +76,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
       return res.json(
         { success: false, message: 'Invalid email format' },
         400,
-        {
-          'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-        }
+        corsHeaders
       );
     }
 
@@ -91,9 +88,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
           message: 'Subject must be between 5 and 100 characters',
         },
         400,
-        {
-          'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-        }
+        corsHeaders
       );
     }
 
@@ -105,9 +100,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
           message: 'Message must be between 10 and 1000 characters',
         },
         400,
-        {
-          'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-        }
+        corsHeaders
       );
     }
 
@@ -133,9 +126,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
       return res.json(
         { success: false, message: 'Failed to send email' },
         500,
-        {
-          'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-        }
+        corsHeaders
       );
     }
 
@@ -144,14 +135,10 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
     return res.json(
       { success: true, message: 'Email sent successfully', data },
       200,
-      {
-        'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-      }
+      corsHeaders
     );
   } catch (err) {
     error('Error processing request:', err);
-    return res.json({ success: false, message: 'Internal server error' }, 500, {
-      'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
-    });
+    return res.json({ success: false, message: 'Internal server error' }, 500, corsHeaders);
   }
 };
