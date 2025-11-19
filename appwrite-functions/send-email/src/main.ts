@@ -40,9 +40,6 @@ const corsHeaders = {
 };
 
 export default async ({ req, res, log, error }: AppwriteContext) => {
-  // Initialize Resend with API key from environment variable
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
   // Handle CORS for browser requests
   if (req.method === 'OPTIONS') {
     return res.json({}, 200, corsHeaders);
@@ -52,6 +49,9 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
   if (req.method !== 'POST') {
     return res.json({ success: false, message: 'Method not allowed' }, 405, corsHeaders);
   }
+
+  // Initialize Resend with API key from environment variable (after OPTIONS check)
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   try {
     // Parse request body
