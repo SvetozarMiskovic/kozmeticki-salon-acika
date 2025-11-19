@@ -7,15 +7,15 @@ const lang = getLangFromUrl(Astro.url) || defaultLanguage;
 const t = useTranslations(lang as keyof typeof ui);
 ---
 
-<footer class="bg-bg-acika-primary border-t border-black text-primary-foreground/90 py-12 px-4 sm:px-6 lg:px-8">
+<footer class="bg-background border-t border-black text-primary-foreground/90 py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <div class="grid md:grid-cols-4 gap-8">
-          <div class='text-center md:text-start'>
+          <div class=' text-center md:text-start'>
             <div class="gap-2 mb-2 ">
 
-              <h4 class="font-playfair font-bold text-3xl">{t('common.salon_acika')}</h4>
+              <h4 class="font-playfair font-bold text-3xl text-primary">{t('common.salon_acika')}</h4>
             </div>
-            <p class="text-2xl text-primary-foreground/70 italic">
+            <p class="text-2xl text-accent-foreground italic">
               {t('footer.address')}
             </p>
           </div>

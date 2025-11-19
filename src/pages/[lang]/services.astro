@@ -2,6 +2,7 @@
 import { langs, type ui } from '../../i18n/ui';
 import { useTranslations } from '../../i18n/utils';
 import Layout from '../../layouts/Layout.astro'; 
+import ServiceList from '../../components/ServiceList.astro';
 
 export function getStaticPaths () {
 	return langs.map((lang) => ({
@@ -14,5 +15,5 @@ const t = useTranslations(lang as keyof typeof ui);
 
 <Layout lang={lang} pageTitle={t('meta.title_services_page')}
    pageDescription={t('meta.page_description_services')}>
-    Servisi jebote
+	<ServiceList lang={lang} />
 </Layout>
