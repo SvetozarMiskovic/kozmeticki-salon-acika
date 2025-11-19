@@ -1,6 +1,7 @@
 ---
 import QuoteRotator from './QuoteRotator.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang)
@@ -29,14 +30,14 @@ console.log('lang u landing page', lang, Astro.params);
   </h2>
  
   <a
-    href="#usluge"
+    href={getRelativeLocaleUrl(lang, '/services')}
     class="z-20 mt-10 px-8 py-4 bg-bg-acika-primary text-acika rounded-full text-2xl font-bold shadow-lg hover:bg-accent-acika-primary transition"
   >
     {t('common.view_services')}
   </a>
 
   <a
-    href="#usluge"
+    href={getRelativeLocaleUrl(lang, '/contact')}
     class="z-20 mt-10 px-8 py-4 bg-accent-acika-primary text-acika rounded-full text-2xl font-bold shadow-lg hover:bg-accent-acika-secondary transition"
   >
     {t('landing.schedule_appointment')}

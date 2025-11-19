@@ -24,20 +24,20 @@ const links = [{
     label: t('nav.services'),
 }]
 
-const navContainer = cn('nav-container','bg-bg-acika-primary border-b flex justify-center w-full')
-const navClass = cn('max-w-7xl flex relative justify-between items-center w-full font-bold text-4xl ')
+const navContainer = cn('nav-container shadow-bottom-strong','bg-background  border-b flex justify-center w-full ')
+const navClass = cn('max-w-7xl flex relative justify-between items-center w-full font-bold text-xl py-2 ')
 
 ---
 
 <nav class={navContainer}>
     <section class={navClass}>
 
-    <a href={`/${currentLanguage}/`} class='relative max-w-52 min-w-52 h-32 p-2'>
+    <a href={`/${currentLanguage}/`} class='relative max-w-52 min-w-52 h-16'>
         <Logo/>
     </a>
     <ul class='navlist hidden max-w-7xl md:flex flex-row gap-4 list-none justify-center p-2'>
         {links.map((link)=>(
-        <li aria-label={`Navigate to ${link.label}`} role='button' class={`${link.pathname === pathname ? "text-text-acika-primary" : "text-text-acika-secondary"}  hover:text-text-acika-primary transition-colors duration-400`}>
+        <li aria-label={`Navigate to ${link.label}`} role='button' class={`${link.pathname === pathname ? "text-primary" : "text-text-acika-secondary"}  hover:text-text-acika-primary transition-colors duration-400`}>
             <a href={link.pathname}>{link.label}</a>
         </li>
         ))}

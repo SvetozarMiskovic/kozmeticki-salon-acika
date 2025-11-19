@@ -1,0 +1,239 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "translationKey": "gel-manicure",
+      "nameEn": "Gel Manicure",
+      "nameSr": "Надоградња - Гел метода",
+      "nameSrLatin": "Nadogradnja - Gel Metoda",
+      "nameDE": "Gel Maniküre",
+      "price": 40.0,
+      "category": "nails"
+    },
+    {
+      "id": 2,
+      "nameEn": "Fill-up",
+      "nameSr": "Допуна",
+      "nameSrLatin": "Dopuna",
+      "nameDE": "Gel-Auffüllung",
+      "price": 35.0,
+      "category": "nails"
+    },
+    {
+      "id": 3,
+      "nameEn": "Nail Lacquer",
+      "nameSr": "Лакирање",
+      "nameSrLatin": "Lakiranje",
+      "nameDE": "Nagellack",
+      "price": 10,
+      "category": "nails"
+    },
+    {
+      "id": 4,
+      "nameEn": "Gel on Natural Nails",
+      "nameSr": "Гел на ноге",
+      "nameSrLatin": "Gel na noge",
+      "nameDE": "Gel auf natürlichen Nägeln",
+      "price": 25.0,
+      "category": "nails"
+    },
+    {
+      "id": 5,
+      "nameEn": "Mini Fill-up",
+      "nameSr": "Мини допуна",
+      "nameSrLatin": "Mini dopuna",
+      "nameDE": "Mini Auffüllung",
+      "price": 25,
+      "category": "nails"
+    },
+    {
+      "id": 6,
+      "nameEn": "Nail Art Entire Nail",
+      "nameSr": "Дизајн цијелих ногу",
+      "nameSrLatin": "Depliacija cijelih nogu",
+      "nameDE": "Nagelkunst ganze Nägel",
+      "price": 30,
+      "category": "nails"
+    },
+    {
+      "id": 7,
+      "nameEn": "Depilation Lower Leg",
+      "nameSr": "Депилација пола ногу",
+      "nameSrLatin": "Depilacija pola nogu",
+      "nameDE": "Haarentfernung Unterschenkel",
+      "price": 15,
+      "category": "hair-removal"
+    },
+    {
+      "id": 8,
+      "nameEn": "Depilation Prepone",
+      "nameSr": "Депилација препоне",
+      "nameSrLatin": "Depilacija prepone",
+      "nameDE": "Bikini-Haarentfernung",
+      "price": 10,
+      "category": "hair-removal"
+    },
+    {
+      "id": 9,
+      "nameEn": "Brazilian Depilation",
+      "nameSr": "Бразилска депилација",
+      "nameSrLatin": "Brazilska depilacija",
+      "nameDE": "Brasilianische Haarentfernung",
+      "price": 15,
+      "category": "hair-removal"
+    },
+    {
+      "id": 10,
+      "nameEn": "Nose Hair Removal",
+      "nameSr": "Депилација наусница",
+      "nameSrLatin": "Depilacija nausnica",
+      "nameDE": "Nasenhaare entfernen",
+      "price": 5,
+      "category": "hair-removal"
+    },
+    {
+      "id": 11,
+      "nameEn": "Stomach Depilation",
+      "nameSr": "Депилација стомака",
+      "nameSrLatin": "Depilacija stomaka",
+      "nameDE": "Bauch-Haarentfernung",
+      "price": 10,
+      "category": "hair-removal"
+    },
+    {
+      "id": 12,
+      "nameEn": "Leg Depilation I",
+      "nameSr": "Депилација леда I",
+      "nameSrLatin": "Depilacija leda I",
+      "nameDE": "Bein-Haarentfernung I",
+      "price": 15,
+      "category": "hair-removal"
+    },
+    {
+      "id": 13,
+      "nameEn": "Leg Depilation II",
+      "nameSr": "Депилација леда II",
+      "nameSrLatin": "Depilacija leda II",
+      "nameDE": "Bein-Haarentfernung II",
+      "price": 10,
+      "category": "hair-removal"
+    },
+    {
+      "id": 14,
+      "nameEn": "Leg Depilation III",
+      "nameSr": "Депилација леда III",
+      "nameSrLatin": "Depilacija leda III",
+      "nameDE": "Bein-Haarentfernung III",
+      "price": 25,
+      "category": "hair-removal"
+    },
+    {
+      "id": 15,
+      "nameEn": "Scar Correction",
+      "nameSr": "Корекција ожига",
+      "nameSrLatin": "Korekcija obrva",
+      "nameDE": "Narbenkorrektur",
+      "price": 5.0,
+      "category": "facial"
+    },
+    {
+      "id": 16,
+      "nameEn": "Eyebrow Correction",
+      "nameSr": "Фарбање ожива",
+      "nameSrLatin": "Farbanje obrva",
+      "nameDE": "Augenbrauen-Formung",
+      "price": 5.0,
+      "category": "facial"
+    },
+    {
+      "id": 17,
+      "nameEn": "Eyebrow Tint",
+      "nameSr": "Фарбање трепавица",
+      "nameSrLatin": "Farbanje trepavica",
+      "nameDE": "Augenbrauen Färben",
+      "price": 5.0,
+      "category": "facial"
+    },
+    {
+      "id": 18,
+      "nameEn": "Pedicure",
+      "nameSr": "Педикир",
+      "nameSrLatin": "Pedikir",
+      "nameDE": "Pediküre",
+      "price": 30.0,
+      "category": "foot"
+    },
+    {
+      "id": 19,
+      "nameEn": "Pedicure + Gel",
+      "nameSr": "Педикир + Гел",
+      "nameSrLatin": "Pedikir + Gel",
+      "nameDE": "Pediküre + Gel",
+      "price": 40.0,
+      "category": "foot"
+    },
+    {
+      "id": 20,
+      "nameEn": "Classic Face Treatment",
+      "nameSr": "Класични третман лица",
+      "nameSrLatin": "Klasicni tretman lica",
+      "nameDE": "Klassische Gesichtsbehandlung",
+      "price": 45.0,
+      "category": "facial"
+    },
+    {
+      "id": 21,
+      "nameEn": "Eyelash Tint",
+      "nameSr": "Освјежење лица",
+      "nameSrLatin": "Osvjezenje lica",
+      "nameDE": "Wimpern Färben",
+      "price": 30.0,
+      "category": "facial"
+    },
+    {
+      "id": 22,
+      "nameEn": "Face Massage",
+      "nameSr": "Масажа лица",
+      "nameSrLatin": "Masaza lica",
+      "nameDE": "Gesichtsmassage",
+      "price": 20.0,
+      "category": "facial"
+    },
+    {
+      "id": 23,
+      "nameEn": "Ampule",
+      "nameSr": "Ампула",
+      "nameSrLatin": "Ampula",
+      "nameDE": "Ampulle",
+      "price": 10.0,
+      "category": "facial"
+    },
+    {
+      "id": 24,
+      "nameEn": "Threading",
+      "nameSr": "Шминкање",
+      "nameSrLatin": "Sminkanje",
+      "nameDE": "Fadentechnik",
+      "price": 35.0,
+      "category": "facial"
+    },
+    {
+      "id": 25,
+      "nameEn": "Permanent Makeup",
+      "nameSr": "Трајни лак",
+      "nameSrLatin": "Trajni lak",
+      "nameDE": "Permanent Make-up",
+      "price": 25.0,
+      "category": "facial"
+    },
+    {
+      "id": 26,
+      "nameEn": "Arm Hair Removal",
+      "nameSr": "Депилација руку",
+      "nameSrLatin": "Depilacija ruku",
+      "nameDE": "Arm-Haarentfernung",
+      "price": 10.0,
+      "category": "hair-removal"
+    }
+  ]
+}
