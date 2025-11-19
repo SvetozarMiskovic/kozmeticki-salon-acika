@@ -39,9 +39,9 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
   // Handle CORS for browser requests
   if (req.method === 'OPTIONS') {
     return res.json({}, 200, {
-      'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '*',
+      'Access-Control-Allow-Origin': 'https://salonacika.com',
       'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
+      'Access-Control-Allow-Headers': 'Content-Type'
     });
   }
 
