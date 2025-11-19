@@ -5,18 +5,15 @@ import FooterRights from '../../components/FooterRights.astro';
 import { langs, type ui } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../i18n/utils'
 import Layout from '../../layouts/Layout.astro' 
-import { resend } from '../../lib/resend';
-console.log('ranujem', getLangFromUrl(Astro.url))
 
-export const prerender = false;
+
 export function getStaticPaths () {
 	return langs.map((lang) => ({
 		params: { lang },
 	}))
 };
 
-const something = Astro.getActionResult(actions.sendEmail);
-console.log('something', something);
+
 
 const {lang}  = Astro.params;
 const t = useTranslations(lang as keyof typeof ui);
