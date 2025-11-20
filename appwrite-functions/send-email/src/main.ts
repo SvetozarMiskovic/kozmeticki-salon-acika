@@ -34,7 +34,7 @@ interface ContactFormData {
 
 // CORS headers
 const corsHeaders = {
-  'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '',
+  'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || 'https://salonacika.com',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Max-Age': '86400'
