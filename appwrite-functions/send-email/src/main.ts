@@ -32,28 +32,46 @@ interface ContactFormData {
   message: string;
 }
 
-// Abstract CORS headers
+// CORS headers
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type'
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Max-Age': '86400'
 };
 
 export default async ({ req, res, log, error }: AppwriteContext) => {
-  // Handle CORS for browser requests
+  // Log the incoming request
+  log('This is the environment:', process.env.ALLOWED_ORIGIN, process.env);
+  log(`Received ${req.method} request`);
+  
+  // Handle CORS preflight immediately
   if (req.method === 'OPTIONS') {
-    return res.json({}, 200, corsHeaders);
+    log('Handling OPTIONS preflight request');
+    return res.send('', 204, corsHeaders); // Use 204 No Content instead of 200
   }
 
   // Only accept POST requests
   if (req.method !== 'POST') {
+    log(`Method ${req.method} not allowed`);
     return res.json({ success: false, message: 'Method not allowed' }, 405, corsHeaders);
   }
 
-  // Initialize Resend with API key from environment variable (after OPTIONS check)
-  const resend = new Resend(process.env.RESEND_API_KEY);
-
   try {
+    // Initialize Resend AFTER all the checks
+    const apiKey = process.env.RESEND_API_KEY;
+    
+    if (!apiKey) {
+      error('RESEND_API_KEY is not set');
+      return res.json(
+        { success: false, message: 'Server configuration error' },
+        500,
+        corsHeaders
+      );
+    }
+    
+    const resend = new Resend(apiKey);
+
     // Parse request body
     const body: ContactFormData = JSON.parse(req.bodyRaw || '{}');
     const { email, subject, message } = body;
