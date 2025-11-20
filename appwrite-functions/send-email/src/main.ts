@@ -124,7 +124,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
 
     // Send email via Resend
     const { data, error: resendError } = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
+      from: 'Salon Acika Website <website@salonacika.com>',
       to: 'salonacika@gmail.com',
       replyTo: email,
       subject: `Contact Form: ${subject}`,
