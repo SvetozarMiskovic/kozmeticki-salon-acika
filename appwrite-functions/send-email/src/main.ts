@@ -62,6 +62,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
     const apiKey = process.env.RESEND_API_KEY;
     
     if (!apiKey) {
+      log('There is no api key', apiKey)
       error('RESEND_API_KEY is not set');
       return res.json(
         { success: false, message: 'Server configuration error' },
@@ -70,12 +71,14 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
       );
     }
     
+    log('API Key is set');
     const resend = new Resend(apiKey);
 
     // Parse request body
     const body: ContactFormData = JSON.parse(req.bodyRaw || '{}');
     const { email, subject, message } = body;
 
+    log('Parsed request body:', email, subject, message )
     // Validate input
     if (!email || !subject || !message) {
       return res.json(
