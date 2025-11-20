@@ -2,30 +2,30 @@
 import ServiceCard from './ServiceCard.astro';
 import servicesData from '../assets/services.json';
 import { useTranslations } from '../i18n/utils';
+import type { ui } from '../i18n/ui';
 const { lang } = Astro.props as { lang: string };
 
 const services = (servicesData as any).services || [];
 
-const t = useTranslations(lang as any);
+const t = useTranslations(lang as keyof typeof ui);
 
 // Get all categories in the order they appear in the data
 const categoriesOrder = Array.from(new Set(services.map((s: any) => s.category).filter(Boolean)));
 
-function label(key: string) {
-	return t(key as any);
-}
+
 ---
 
 <section class="w-full flex justify-center bg-input px-6 py-12 services-container">
 	
     <div class='max-w-7xl'>
 
-    <div class="text-center rounded-xl bg-background mb-12 services-header">
+    <div class="text-center rounded-xl py-4 bg-background mb-12 services-header">
 		<h1 class="font-playfair text-[clamp(2rem,5vw,3rem)] text-[color:var(--color-text-acika-primary)] mb-2 font-bold">
-			{label('services.header.title')}
+		
+			{t('services', 'header.title')}
 		</h1>
 		<p class="text-[color:var(--color-text-acika-secondary)] text-[1.1rem] max-w-[600px] mx-auto">
-			{label('services.header.description')}
+			{t('services', 'header.description')}
 		</p>
 	</div>
 
@@ -35,7 +35,7 @@ function label(key: string) {
 		return (
 			<div class="mb-12 rounded-xl bg-background p-4 category-section">
 				<h2 class="font-playfair font-bold text-[1.8rem] text-[color:var(--color-primary)] mb-6 pb-2 border-b-2 border-accent inline-block category-title">
-					{label(`category.${catKey}`)}
+					{t('services',`category.${catKey}` as keyof (typeof ui['en']['services']))}
 				</h2>
 				<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 services-grid">
 					{categoryServices.map((service: any) => (

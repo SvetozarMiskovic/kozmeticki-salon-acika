@@ -12,20 +12,20 @@ const pathname = Astro.url.pathname
 
 const links = [{
     pathname:  getRelativeLocaleUrl(getLangFromUrl(Astro.url), "" ),
-    label: t('nav.home'),
+    label: t('nav', 'home'),
 }, {
     pathname:  getRelativeLocaleUrl(getLangFromUrl(Astro.url), "about" ),
-    label: t('nav.about'),
+    label: t('nav', 'about'),
 }, {
     pathname: getRelativeLocaleUrl(getLangFromUrl(Astro.url), "contact" ),
-    label: t('nav.contact'),
+    label: t('nav', 'contact'),
 },{
     pathname: getRelativeLocaleUrl(getLangFromUrl(Astro.url), "services" ),
-    label: t('nav.services'),
+    label: t('nav', 'services'),
 }]
 
 const navContainer = cn('nav-container shadow-bottom-strong','bg-background  border-b flex justify-center w-full ')
-const navClass = cn('max-w-7xl flex relative justify-between items-center w-full font-bold text-xl py-2 ')
+const navClass = cn('max-w-7xl flex relative justify-between items-center w-full font-bold text-2xl py-2 ')
 
 ---
 
@@ -50,15 +50,15 @@ const navClass = cn('max-w-7xl flex relative justify-between items-center w-full
 
 
 <script>
-    console.log('sveto')
+  
     const navlist = document.querySelector('.navlist');
     const navContainer = document.querySelector('.nav-container');
     const hamburger = document.querySelector('.hamburger-icon');
 
-    console.log(navlist?.clientWidth)
+ 
     if(navlist && navContainer){
     window?.addEventListener('load', () => {
-        console.log('Loaded')
+       
         if(navContainer?.clientWidth >= 768){
             // navlist?.classList.remove('flex');
             navlist?.classList.remove('hidden');

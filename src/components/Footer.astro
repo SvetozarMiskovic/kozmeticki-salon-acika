@@ -13,33 +13,18 @@ const t = useTranslations(lang as keyof typeof ui);
           <div class=' text-center md:text-start'>
             <div class="gap-2 mb-2 ">
 
-              <h4 class="font-playfair font-bold text-3xl text-primary">{t('common.salon_acika')}</h4>
+              <h4 class="font-playfair font-bold text-3xl text-primary">{t('common', 'salon_acika')}</h4>
             </div>
             <p class="text-2xl text-accent-foreground italic">
-              {t('footer.address')}
+              {t('footer', 'address')}
             </p>
           </div>
-          <div>
-            <h5 class="font-bold text-3xl mb-2 text-primary-foreground">{t('footer.quick_links')}</h5>
-            <ul class="space-y-2 text-2xl italic">
-              <li><a href={getRelativeLocaleUrl(lang, 'about')} class="hover:text-primary-foreground transition-colors">{t('nav.about')}</a></li>
-              <li><a href={getRelativeLocaleUrl(lang, 'services')} class="hover:text-primary-foreground transition-colors">{t('nav.services')}</a></li>
-              <li><a href={getRelativeLocaleUrl(lang, 'contact')} class="hover:text-primary-foreground transition-colors">{t('nav.contact')}</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5 class="font-bold text-3xl mb-2 text-primary-foreground">{t('nav.contact')}</h5>
-            <ul class="space-y-2 text-2xl italic">
-              <li><a href={`tel:${HEADER.phone}`} class="hover:text-primary-foreground transition-colors">{t('common.phone')}</a></li>
-              <li><a href={`mailto:${HEADER.email}`} class="hover:text-primary-foreground transition-colors">{t('common.email')}</a></li>
-              <li><a href={`copy:sveto`} class="hover:text-primary-foreground transition-colors">{t('common.location')}</a></li>
-            </ul>
-          </div>
-          <div>
-            <h5 class="font-bold text-3xl mb-2 text-primary-foreground">{t('footer.follow_us')}</h5>
-            <ul class="space-y-2 text-2xl italic">
-              <li><a href="https://www.facebook.com/acikanokti/" target='_blank' class="hover:text-primary-foreground transition-colors">Facebook</a></li>
-              <li><a href='https://www.instagram.com/acika_nokti/' target='_blank' class="hover:text-primary-foreground transition-colors">Instagram</a></li>
+       
+          <div class='text-center'>
+            <h5 class="font-playfair font-bold text-3xl mb-2 text-primary">{t('footer', 'follow_us')}</h5>
+            <ul class=" flex gap-2 justify-center text-accent-foreground text-2xl italic">
+              <li><a href="https://www.facebook.com/acikanokti/" target='_blank' class="hover:text-primary hover:underline transition-colors">Facebook</a></li>
+              <li><a href='https://www.instagram.com/acika_nokti/' target='_blank' class="hover:text-primary hover:underline transition-colors">Instagram</a></li>
             </ul>
           </div>
         </div>

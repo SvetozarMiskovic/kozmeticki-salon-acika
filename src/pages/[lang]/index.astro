@@ -1,8 +1,8 @@
 ---
 import LandingPage from '../../components/LandingPage.astro' 
-import { languages, ui, langs, type Lang } from '../../i18n/ui'
+import {  ui, langs } from '../../i18n/ui'
 
-import { getLangFromUrl, useTranslations } from '../../i18n/utils'
+import { useTranslations } from '../../i18n/utils'
 import Layout from '../../layouts/Layout.astro' 
 
 export function getStaticPaths () {
@@ -11,16 +11,12 @@ export function getStaticPaths () {
 	}))
 };
 const {lang}  = Astro.params;
-// const currentLanguage = getLangFromUrl(Astro.url);
 const t = useTranslations(lang as keyof typeof ui);
-console.log('ranujem', getLangFromUrl(Astro.url), lang)
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout lang={lang} pageTitle={t('meta.title_landing_page')}
-	pageDescription={t('meta.page_description_landing')}>
+<Layout lang={lang} pageTitle={t('meta', 'title_landing_page')}
+	pageDescription={t('meta', 'page_description_landing')}>
 	<!-- <Welcome /> -->
 	<LandingPage/>
 	

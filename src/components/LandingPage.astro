@@ -5,7 +5,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang)
-console.log('lang u landing page', lang, Astro.params);
+
 ---
 
 <section id='home' class="relative z-10 flex flex-col items-center justify-center text-center px-6 py-10 h-full overflow-hidden">
@@ -22,24 +22,24 @@ console.log('lang u landing page', lang, Astro.params);
   </div>
 
   <!-- Content -->
-  <h1 class=" relative z-20 text-7xl md:text-6xl font-bold text-accent-acika-primary drop-shadow-lg">
-    {t('landing.text')}
+  <h1 class=" relative z-20 text-4xl md:text-6xl font-bold text-background drop-shadow-lg">
+    {t('landing', "text")}
   </h1>
-  <h2 class="relative z-20 mt-6 text-3xl font-bold md:text-5xl text-bg-acika-primary max-w-2xl">
-   {t('landing.subtext')}
+  <h2 class="relative z-20 mt-6 text-2xl font-bold md:text-4xl text-secondary max-w-2xl">
+   {t('landing', "subtext")}
   </h2>
  
   <a
     href={getRelativeLocaleUrl(lang, '/services')}
-    class="z-20 mt-10 px-8 py-4 bg-bg-acika-primary text-acika rounded-full text-2xl font-bold shadow-lg hover:bg-accent-acika-primary transition"
+    class="z-20 mt-10 px-8 py-4 bg-primary-foreground text-acika rounded-full text-xl font-bold shadow-lg hover:bg-secondary hover:text-white transition"
   >
-    {t('common.view_services')}
+    {t('common', "view_services")}
   </a>
 
   <a
     href={getRelativeLocaleUrl(lang, '/contact')}
-    class="z-20 mt-10 px-8 py-4 bg-accent-acika-primary text-acika rounded-full text-2xl font-bold shadow-lg hover:bg-accent-acika-secondary transition"
+    class="z-20 mt-10 px-8 py-4 bg-primary text-accent rounded-full text-xl font-bold shadow-lg hover:bg-secondary transition"
   >
-    {t('landing.schedule_appointment')}
+    {t('landing', "schedule_appointment")}
   </a>
 </section>

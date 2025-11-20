@@ -8,24 +8,24 @@ import MobileLanguagePicker from './MobileLanguagePicker.astro';
 
 const currentLanguage = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLanguage);
-const ten = useTranslations('en');
+
 const pathname = Astro.url.pathname
 
 const links = [{
     pathname:  getRelativeLocaleUrl(getLangFromUrl(Astro.url), "" ),
-    label: t('nav.home'),
+    label: t('nav', 'home'),
     icon: 'Home'
 }, {
     pathname:  getRelativeLocaleUrl(getLangFromUrl(Astro.url), "about" ),
-    label: t('nav.about'),
+    label: t('nav', 'about'),
     icon: 'About'
 }, {
     pathname: getRelativeLocaleUrl(getLangFromUrl(Astro.url), "contact" ),
-    label: t('nav.contact'),
+    label: t('nav', 'contact'),
     icon: 'Contact'
 }, {
     pathname: getRelativeLocaleUrl(getLangFromUrl(Astro.url), "services" ),
-    label: t('nav.services'),
+    label: t('nav', 'services'),
     icon: 'Services'
 }]
 

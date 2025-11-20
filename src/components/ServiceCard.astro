@@ -1,15 +1,15 @@
 ---
+import { ui } from '../i18n/ui';
 import { useTranslations } from '../i18n/utils';
 const { service, lang } = Astro.props as { service: any; lang: string };
 
-const t = useTranslations(lang as any);
-const displayName = t(service.translationKey as any);
+const t = useTranslations(lang as keyof typeof ui);
 const price = typeof service.price === 'number' ? service.price : Number(service.price || 0);
 ---
 
 <div class="bg-white rounded-lg p-6 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-[color:var(--color-border)] transition-all duration-300 service-card hover:-translate-y-1 hover:shadow-[0_8px_16px_rgba(0,0,0,0.12)]">
 	<div class="font-semibold text-[color:var(--color-text-acika-primary)] mb-2 text-base service-name">
-		{displayName}
+		{t('services', service.translationKey)}
 	</div>
 	<div class="font-playfair text-[1.5rem] text-[color:var(--color-primary)] font-bold service-price">
 		BAM<span class="text-[0.9rem] text-[color:var(--color-text-acika-secondary)] ml-1 service-price-currency"></span>{price.toFixed(2)}

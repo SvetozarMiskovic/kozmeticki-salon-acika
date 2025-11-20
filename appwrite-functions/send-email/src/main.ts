@@ -34,7 +34,7 @@ interface ContactFormData {
 
 // CORS headers
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Origin': process.env.ALLOWED_ORIGIN || '',
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Max-Age': '86400'
@@ -42,8 +42,6 @@ const corsHeaders = {
 
 export default async ({ req, res, log, error }: AppwriteContext) => {
   // Log the incoming request
-  log('This is the environment:', process.env.ALLOWED_ORIGIN, process.env);
-  log(`Received ${req.method} request`);
   
   // Handle CORS preflight immediately
   if (req.method === 'OPTIONS') {
@@ -62,7 +60,6 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
     const apiKey = process.env.RESEND_API_KEY;
     
     if (!apiKey) {
-      log('There is no api key', apiKey)
       error('RESEND_API_KEY is not set');
       return res.json(
         { success: false, message: 'Server configuration error' },
@@ -71,14 +68,12 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
       );
     }
     
-    log('API Key is set');
     const resend = new Resend(apiKey);
 
     // Parse request body
     const body: ContactFormData = JSON.parse(req.bodyRaw || '{}');
     const { email, subject, message } = body;
 
-    log('Parsed request body:', email, subject, message )
     // Validate input
     if (!email || !subject || !message) {
       return res.json(
@@ -130,7 +125,7 @@ export default async ({ req, res, log, error }: AppwriteContext) => {
     // Send email via Resend
     const { data, error: resendError } = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
-      to: 'svetomiskovic98@gmail.com',
+      to: 'salonacika@gmail.com',
       replyTo: email,
       subject: `Contact Form: ${subject}`,
       html: `

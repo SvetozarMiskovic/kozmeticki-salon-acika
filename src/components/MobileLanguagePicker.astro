@@ -9,16 +9,16 @@ const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(
 
 <ul 
     id="mobile-language-dropdown"
-    class="mobile-language-picker w-full p-2 bg-accent-acika-primary flex justify-between border rounded shadow-lg mt-1  z-50"
+    class="mobile-language-picker w-full p-2 bg-input flex justify-between border rounded shadow-lg mt-1  z-50"
     role="listbox">
     {Object.entries(languages).map(([code, name]) => (
         <li role="option">
             <a 
                 href={import.meta.env.SITE + `${code}/${path}`}
-                class={cn("flex items-center gap-2 px-1 py-2 rounded-full hover:bg-bg-acika-primary", code === currentLanguage ? 'font-bold bg-bg-acika-primary' : '')}
+                class={cn("flex items-center gap-2 px-1 py-2 rounded-full hover:bg-secondary", code === currentLanguage ? 'font-bold bg-secondary' : '')}
                 data-lang={code}>
                 <img 
-                    src={`/${code.split('-')[0]}.png`} 
+                    src={`/${code.split('-')[0]}.webp`} 
                     alt="" 
                     class="w-5 h-5"
                     aria-hidden="true"

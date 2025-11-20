@@ -2,8 +2,8 @@
 import { useTranslations } from '../i18n/utils';
     const lang = 'en';
     const t = useTranslations(lang);
-    const pageTitle = t('meta.title_404_page');
-    const pageDescription = t('meta.page_description_404');
+    const pageTitle = t('meta', 'title_404_page');
+    const pageDescription = t('meta', 'page_description_404');
     
 ---
 
@@ -31,11 +31,11 @@ import { useTranslations } from '../i18n/utils';
         <img src="/not-found.webp"/>
     </div>
     <div class=' text-container'>
-        <h1 >{t('meta.title_404_page')}</h1>
-        <h2 >{t('meta.page_description_404')}</h2>
+        <h1 >{t('meta', 'title_404_page')}</h1>
+        <h2 >{t('meta', 'page_description_404')}</h2>
         <div class='btn-container'>
 
-            <a class='btn-primary' href={"/" + lang + '/services'}>{t('common.view_services')}</a>
+            <a class='btn-primary' href={"/" + lang + '/services'}>{t('common', 'view_services')}</a>
             <a class='btn-secondary' href={"/" + lang + '/'}>Go to the Home page</a>
         </div>
     </div>
