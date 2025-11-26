@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import notFoundImage from '../../public/not-found.webp';
 import { useTranslations } from '../i18n/utils';
     const lang = 'en';
     const t = useTranslations(lang);
@@ -27,9 +29,15 @@ import { useTranslations } from '../i18n/utils';
 	<body>
 <section class='container'> 
 
-    <div class="img-container">
-        <img src="/not-found.webp"/>
-    </div>
+    <figure class="img-container">
+        <Image 
+            src={notFoundImage} 
+            alt="404 error - strana nije pronađena" 
+            class="w-full h-auto"
+            format="webp"
+            loading="eager"
+        />
+    </figure>
     <div class=' text-container'>
         <h1 >{t('meta', 'title_404_page')}</h1>
         <h2 >{t('meta', 'page_description_404')}</h2>

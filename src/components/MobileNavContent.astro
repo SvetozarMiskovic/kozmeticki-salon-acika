@@ -37,8 +37,8 @@ const links = [{
       <MobileLanguagePicker/>  
 
         {links.map((link)=>(
-        <li class={`${link.pathname === pathname ? "text-text-acika-primary" : "text-text-acika-secondary"}  hover:text-text-acika-primary transition-colors duration-400 flex items-center py-4 gap-1`}>
-             <Icon name={link.icon}/> <a href={link.pathname}>{link.label}</a>
+        <li class={`${link.pathname === pathname ? "text-text-acika-primary" : "text-text-acika-secondary"}  hover:text-text-acika-primary transition-colors duration-400 flex items-center py-4 gap-1 w-full`}>
+              <a href={link.pathname} class='flex border-b border-black w-full flex-1 items-center gap-2'><Icon name={link.icon}/>{link.label}</a>
         </li>
         ))}
 

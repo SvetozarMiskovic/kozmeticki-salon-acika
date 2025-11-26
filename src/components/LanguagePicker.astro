@@ -7,13 +7,12 @@ const url = Astro.url;
 const currentLanguage = getLangFromUrl(url);
 const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(-2, -1) : '';
 
-
 ---
 
-<div class="language-container flex-col relative flex z-50">
+<nav class="language-container flex-col relative flex z-50" aria-label="Language selection">
     <button 
         type="button"
-        class="custom-select-trigger cursor-pointer text-primary bg-accent focus:bg-primary hover:bg-primary active:bg-primary hover:text-white focus:text-white active:text-white flex w-fit items-center gap-2 px-5 border rounded"
+        class="custom-select-trigger cursor-pointer text-secondary  bg-accent flex w-fit items-center gap-2 px-5 rounded"
         aria-expanded="false"
         aria-controls="language-dropdown"
         aria-label="Select language">
@@ -22,6 +21,9 @@ const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(
             alt="" 
             class="w-5 h-5"
             aria-hidden="true"
+            width="20"
+            height="20"
+            loading="lazy"
         />
         <h1 >{languages[currentLanguage]}</h1>
         <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -44,13 +46,16 @@ const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(
                         alt="" 
                         class="w-5 h-5"
                         aria-hidden="true"
+                        width="20"
+                        height="20"
+                        loading="lazy"
                     />
                     <span>{name}</span>
                 </a>
             </li>
         ))}
     </ul>
-</div>
+</nav>
 
 <script>
     const langContainer = document.querySelector('.language-container');

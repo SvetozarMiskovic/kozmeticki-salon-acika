@@ -15,14 +15,22 @@ const t = useTranslations(lang)
     <div class="absolute inset-0 bg-black/50 z-10"></div>
     
     <!-- Video -->
-     
-    <video autoplay loop muted playsinline class="w-full h-full object-cover">
+    <video 
+      autoplay 
+      loop 
+      muted 
+      playsinline 
+      class="w-full h-full object-cover"
+      preload="metadata"
+      aria-label="Kozmetički salon Acika - video pozadina"
+      title="Video prezentacija kozmetičkog salona Acika">
       <source src="/landing-page.webm" type="video/webm" />
+      <p>Your browser doesn't support video.</p>
     </video>
   </div>
 
   <!-- Content -->
-  <h1 class=" relative z-20 text-4xl md:text-6xl font-bold text-background drop-shadow-lg">
+  <h1 class="relative z-20 text-4xl md:text-6xl font-bold text-background drop-shadow-lg">
     {t('landing', "text")}
   </h1>
   <h2 class="relative z-20 mt-6 text-2xl font-bold md:text-4xl text-secondary max-w-2xl">

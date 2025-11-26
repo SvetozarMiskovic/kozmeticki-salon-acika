@@ -1,7 +1,16 @@
 ---
-
+import { Image } from 'astro:assets';
+import logoImage from '../../public/Logo-Black-T.webp';
 ---
 
-<section class='w-full h-full  flex items-center justify-center'>
-    <img src={'/Logo-Black-T.webp'} alt="Kozmeticki salon Acika" class="w-full h-auto"/>
-</section>
+<figure class='w-full h-full flex items-center justify-center'>
+    <Image 
+        src={logoImage} 
+        alt="Kozmetički salon Acika logo - profesionalni kozmetički tretmani" 
+        class="w-full h-auto"
+        loading="eager"
+        width={208}
+        height={64}
+        format="webp"
+    />
+</figure>

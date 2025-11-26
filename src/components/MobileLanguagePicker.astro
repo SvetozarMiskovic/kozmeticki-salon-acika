@@ -7,24 +7,29 @@ const currentLanguage = getLangFromUrl(url);
 const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(-2, -1) : '';
 ---
 
-<ul 
+<nav 
     id="mobile-language-dropdown"
-    class="mobile-language-picker w-full p-2 bg-input flex justify-between border rounded shadow-lg mt-1  z-50"
-    role="listbox">
+    class="mobile-language-picker w-full p-4 bg-transparent flex justify-center gap-3 mb-2"
+    aria-label="Language selection">
     {Object.entries(languages).map(([code, name]) => (
-        <li role="option">
-            <a 
-                href={import.meta.env.SITE + `${code}/${path}`}
-                class={cn("flex items-center gap-2 px-1 py-2 rounded-full hover:bg-secondary", code === currentLanguage ? 'font-bold bg-secondary' : '')}
-                data-lang={code}>
-                <img 
-                    src={`/${code.split('-')[0]}.webp`} 
-                    alt="" 
-                    class="w-5 h-5"
-                    aria-hidden="true"
-                    />
-                <span>{name.slice(0,2)}</span>
-                </a>
-            </li>
-        ))}
-    </ul>
+        <a 
+            href={import.meta.env.SITE + `${code}/${path}`}
+            class={cn(
+                "flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-all hover:bg-secondary/20",
+                code === currentLanguage ? 'bg-secondary text-white' : 'bg-input'
+            )}
+            data-lang={code}
+            aria-label={`Switch to ${name}`}>
+            <img 
+                src={`/${code.split('-')[0]}.webp`} 
+                alt="" 
+                class="w-8 h-8 rounded-full shadow-sm"
+                aria-hidden="true"
+                width="32"
+                height="32"
+                loading="lazy"
+            />
+            <span class="text-xs font-medium">{name.slice(0,2).toUpperCase()}</span>
+        </a>
+    ))}
+</nav>

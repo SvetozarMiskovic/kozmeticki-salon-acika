@@ -7,14 +7,14 @@ const currentLanguage = getLangFromUrl(Astro.url);
 const t = useTranslations(currentLanguage);
 ---
 
-<section class='header-container flex justify-center items-center bg-secondary text-white text-md md:text-lg p-1'>
+<header class='header-container flex justify-center items-center bg-secondary text-white text-md md:text-lg p-1' role="banner">
     <div class='max-w-7xl w-full flex flex-row justify-center items-center gap-4'>
-        <section aria-label='Contact us' class='flex flex-row w-full justify-between md:justify-start gap-4 font-bold'>
-            <a aria-label='Call us' role='button' class='hover:underline italic active:underline flex flex-row items-center gap-1' href={`tel:${HEADER.phone}`} ><Icon name={'phone'}/> {HEADER.phone}</a>
-            <a aria-label='Email us' role='button' class='hover:underline italic active:underline flex flex-row items-center gap-1' href={`mailto:${HEADER.email}`}><Icon name={'mail'}/> {HEADER.email}</a>
-        </section>
-        <section aria-label='Language selection' class='w-full  flex-1 justify-end items-center relative hidden md:flex'>
+        <address class='flex flex-row w-full justify-between md:justify-start gap-4 font-bold not-italic'>
+            <a aria-label='Call us' class='hover:underline italic active:underline flex flex-row items-center gap-1' href={`tel:${HEADER.phone}`} ><Icon name={'phone'}/> {HEADER.phone}</a>
+            <a aria-label='Email us' class='hover:underline italic active:underline flex flex-row items-center gap-1' href={`mailto:${HEADER.email}`}><Icon name={'mail'}/> {HEADER.email}</a>
+        </address>
+        <nav aria-label='Language selection' class='w-full  flex-1 justify-end items-center relative hidden md:flex'>
             <LanguagePicker/>
-        </section>
+        </nav>
     </div>
-</section>
+</header>

@@ -210,19 +210,19 @@ export const ui = {
   },
   de: {
     nav: {
-      home: 'Home',
-      about: 'About',
-      contact: 'Contact',
-      services: 'Services',
+      home: 'Startseite',
+      about: 'Über uns',
+      contact: 'Kontakt',
+      services: 'Dienstleistungen',
     },
     common: {
-      rights_reserved: 'All rights reserved.',
-      phone: 'Phone',
-      email: 'Email',
-      location: 'Location',
-      or: 'or',
-      contact_us: 'Contact Us',
-      view_services: 'View Our Services',
+      rights_reserved: 'Alle Rechte vorbehalten.',
+      phone: 'Telefon',
+      email: 'E-Mail',
+      location: 'Standort',
+      or: 'oder',
+      contact_us: 'Kontaktieren Sie uns',
+      view_services: 'Unsere Dienstleistungen ansehen',
       salon_acika: 'Salon Acika',
     },
     landing: {
@@ -249,9 +249,9 @@ export const ui = {
         'Im Salon Acika verwandeln wir nicht nur das äußere Erscheinungsbild - wir schaffen Momente der Freude, Entspannung und Selbstentdeckung. Ihre Zufriedenheit und Ihr Komfort stehen bei uns an erster Stelle.',
     },
     footer: {
-      address: 'Carice Milice 9, 78000, Banja Luka, Bosnia and Herzegovina',
-      quick_links: 'Quick Links',
-      follow_us: 'Follow Us',
+      address: 'Carice Milice 9, 78000, Banja Luka, Bosnien und Herzegowina',
+      quick_links: 'Schnelle Links',
+      follow_us: 'Folgen Sie uns',
     },
     meta: {
       title_landing: 'Kosmetiksalon ACIKA - Schönheit und Fachwissen',

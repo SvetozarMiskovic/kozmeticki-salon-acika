@@ -1,8 +1,49 @@
 ---
+import { Image } from 'astro:assets';
+import salonInterior from '../../public/modern-beauty-salon.webp';
+import { useTranslations } from '../i18n/utils';
+import type { ui } from '../i18n/ui';
+const { lang } = Astro.props as { lang: string };
 
-
+const t = useTranslations(lang as keyof typeof ui);
 ---
 
-<div class='w-full h-full overflow-y-hidden bg-gradient-to-br from-acika via-rose-50 to-acika'>
-    About component
-</div>
+<main class="w-full bg-input px-6 py-12">
+  <div class="max-w-7xl mx-auto rounded-md">
+    <header class="text-center rounded-xl py-4 bg-background mb-12 services-header">
+      <h1 class="font-playfair text-[clamp(2rem,5vw,3rem)] text-primary mb-2 font-bold">
+        {t('about', 'title')}
+      </h1>
+      <p class="text-[color:var(--color-text-acika-secondary)] text-[1.1rem] max-w-[600px] mx-auto">
+        {t('meta', 'page_description_about')}
+      </p>
+    </header>
+
+    <article class="bg-background rounded-lg border border-[color:var(--color-border)] p-8 shadow-sm">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <figure class="w-full h-full order-2 md:order-1">
+          <Image 
+            src={salonInterior} 
+            alt="Moderni enterijer kozmetičkog salona Acika - profesionalan i udoban ambijent za tretmane" 
+            class="rounded-lg shadow-lg h-full w-full object-cover"
+            format="webp"
+            width={600}
+            height={400}
+            loading="lazy"
+          />
+        </figure>
+        <div class="h-full flex flex-col gap-4 order-1 md:order-2">
+          <p class="text-[color:var(--color-text-acika-primary)] text-lg leading-relaxed">
+            {t('about', 'paragraph1')}
+          </p>
+          <p class="text-[color:var(--color-text-acika-primary)] text-lg leading-relaxed">
+            {t('about', 'paragraph2')}
+          </p>
+          <p class="text-[color:var(--color-text-acika-primary)] text-lg leading-relaxed">
+            {t('about', 'paragraph3')}
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</main>
