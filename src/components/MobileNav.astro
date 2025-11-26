@@ -27,20 +27,21 @@ import MobileNavTrigger from './MobileNavTrigger.astro';
         if (mobileNav && !mobileNav.contains(target) && !btn?.contains(target)) {
 
         btn?.setAttribute('aria-expanded', 'false');
-        mobileNav?.classList.remove('opacity-100')
+        mobileNav?.classList.remove('opacity-100');
+        mobileNav?.classList.add('opacity-0', 'pointer-events-none');
         secondLine?.classList.remove('opacity-0');
         firstLine?.classList.remove('rotate-45');
         thirdLine?.classList.remove('-rotate-45');
         firstLine?.classList.remove('translate-y-2');
         thirdLine?.classList.remove('-translate-y-2');
-        mobileNav?.classList.add('opacity-0')
          
         }
       });
 
       btn?.addEventListener('click', () => {
         const expanded = btn?.getAttribute('aria-expanded') === 'true'
-        mobileNav?.classList.toggle('opacity-100')
+        mobileNav?.classList.toggle('opacity-100');
+        mobileNav?.classList.toggle('pointer-events-none');
         if(expanded){
           btn?.setAttribute('aria-expanded', 'false')
         } else {

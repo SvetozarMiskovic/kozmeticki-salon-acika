@@ -12,34 +12,34 @@ const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(
 <nav class="language-container flex-col relative flex z-50" aria-label="Language selection">
     <button 
         type="button"
-        class="custom-select-trigger cursor-pointer text-secondary  bg-accent flex w-fit items-center gap-2 px-5 rounded"
+        class="custom-select-trigger cursor-pointer text-secondary bg-accent hover:bg-accent/80 flex w-fit items-center gap-2 px-5 py-1 rounded transition-all duration-300 hover:shadow-md"
         aria-expanded="false"
         aria-controls="language-dropdown"
         aria-label="Select language">
         <img 
             src={`/${currentLanguage.split('-')[0]}.webp`} 
             alt="" 
-            class="w-5 h-5"
+            class="w-5 h-5 transition-transform duration-300"
             aria-hidden="true"
             width="20"
             height="20"
             loading="lazy"
         />
-        <h1 >{languages[currentLanguage]}</h1>
-        <svg class="ml-auto w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <h1 class="text-sm font-medium">{languages[currentLanguage]}</h1>
+        <svg class="ml-auto w-4 h-4 transition-transform duration-300 chevron-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
     </button>
 
     <ul 
         id="language-dropdown"
-        class="custom-select-dropdown absolute top-full left-0 w-full bg-input text-secondary border rounded shadow-lg mt-1 hidden z-50"
+        class="custom-select-dropdown absolute top-full left-0 w-full bg-input text-secondary border rounded shadow-lg mt-1 overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 z-50"
         role="listbox">
         {Object.entries(languages).map(([code, name]) => (
-            <li role="option">
+            <li role="option" class="transition-colors duration-200">
                 <a 
                     href={import.meta.env.SITE + `${code}/${path}`}
-                    class={cn("flex items-center gap-2 px-1 py-2 hover:bg-secondary/60 hover:text-primary-foreground", code === currentLanguage ? 'font-bold bg-secondary text-white' : '')}
+                    class={cn("flex items-center gap-2 px-3 py-2 transition-all duration-200 hover:bg-secondary/80 hover:text-primary-foreground hover:pl-4", code === currentLanguage ? 'font-bold bg-secondary text-white' : '')}
                     data-lang={code}>
                     <img 
                         src={`/${code.split('-')[0]}.webp`} 
@@ -59,36 +59,49 @@ const path = url.pathname.split('/').length > 3 ? url.pathname.split('/').slice(
 
 <script>
     const langContainer = document.querySelector('.language-container');
-    const trigger = langContainer?.querySelector('.custom-select-trigger');
-    const dropdown = langContainer?.querySelector('.custom-select-dropdown');
+    const trigger = langContainer?.querySelector('.custom-select-trigger') as HTMLButtonElement;
+    const dropdown = langContainer?.querySelector('.custom-select-dropdown') as HTMLElement;
+    const chevron = langContainer?.querySelector('.chevron-icon') as SVGElement;
     const headerContainer = document.querySelector('.header-container');
 
+    function closeDropdown() {
+        trigger?.setAttribute('aria-expanded', 'false');
+        dropdown?.classList.remove('max-h-96', 'opacity-100');
+        dropdown?.classList.add('max-h-0', 'opacity-0');
+        chevron?.classList.remove('rotate-180');
+    }
+
+    function openDropdown() {
+        trigger?.setAttribute('aria-expanded', 'true');
+        dropdown?.classList.remove('max-h-0', 'opacity-0');
+        dropdown?.classList.add('max-h-96', 'opacity-100');
+        chevron?.classList.add('rotate-180');
+    }
 
     document.addEventListener('click', (e) => {
         const target = e.target as Node;
         if (langContainer && !langContainer.contains(target)) {
-            trigger?.setAttribute('aria-expanded', 'false');
-            dropdown?.classList.add('hidden');
+            closeDropdown();
         }
     });
-
 
     window.addEventListener('resize', () => {
         const headerRect = headerContainer?.clientWidth;
         if(headerRect && headerRect < 768) {
-            trigger?.classList.add('hidden')
-            trigger?.setAttribute('aria-expanded', 'false');
-            dropdown?.classList.add('hidden');
+            trigger?.classList.add('hidden');
+            closeDropdown();
         } else {  
             trigger?.classList.remove('hidden');
-            trigger?.setAttribute('aria-expanded', 'false');
         }
     });
 
     trigger?.addEventListener('click', (e) => {
-        
-        const expanded = trigger.getAttribute('aria-expanded') === 'true' || false;
-        trigger.setAttribute('aria-expanded', String(!expanded));
-        dropdown?.classList.toggle('hidden');
+        e.preventDefault();
+        const expanded = trigger.getAttribute('aria-expanded') === 'true';
+        if (expanded) {
+            closeDropdown();
+        } else {
+            openDropdown();
+        }
     });
 </script>
