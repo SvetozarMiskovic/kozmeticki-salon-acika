@@ -1,4 +1,9 @@
-# Astro Starter Kit: Basics / salonacika.com
+# Hosted with Apprite
+# salonacika.com
+
+
+
+# Astro Starter Kit: Basics 
 
 ```sh
 npm create astro@latest -- --template basics
